@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ditolist.css">
+</head>
+<body>
+    <span id="spann">list item <span id="innerspan">1</span></span>
+    <h1>welcome to do to lst</h1>
+    <center>
+        
+        <input type="text" placeholder="something write" id="iding">
+    <button class="but"  onclick="add()">ADD</button>
+
+    </center>
+ 
+    
+    <ul id="list">
+        <li class="res">hello 
+            <button class="buttons" onclick="deletedeff(event)">DELETE</button>
+        </li>
+    
+    </ul>
+    <script>
+        var item=1
+        var idd=document.getElementById("iding")
+        var ul=document.getElementById("list")
+        var span=document.getElementById("spann")
+        var span1=document.getElementById("innerspan")
+
+        
+        function add() 
+        {
+            item=item+1
+            var create=document.createElement("li")
+            create.setAttribute("class","res")
+            create.innerHTML=idd.value+"<button class='buttons' onclick='deletedeff(event)'>delete</button>"
+            ul.append(create)
+            idd.value=""
+            span1.textContent=""
+            span1.append(item)
+
+        } 
+        function deletedeff(event){
+            item=item-1;
+            event.target.parentElement.remove()
+            span1.textContent=""
+            span1.append(item)
+
+
+        }
+    </script>
+</body>
+</html>
